@@ -149,7 +149,9 @@ def dump_channel_meta(data):
     print(data[:3].decode())
     print(" time scale: {} ns/div".format(num_to_timescale(data[0x1b])))
     print(" volt scale: {} mV/div".format(num_to_voltscale(data[0x23])))
-    print(" yshift: {} div".format(struct.unpack("<l", data[0x1f:0x1f+4])[0]*0.04))
+    print(" yshift: {} div".format(
+        struct.unpack("<l", data[0x1f:0x1f+4])[0]*0.04
+    ))
     # data = numpy.frombuffer(data[0x3b:], numpy.int16)
 
 
